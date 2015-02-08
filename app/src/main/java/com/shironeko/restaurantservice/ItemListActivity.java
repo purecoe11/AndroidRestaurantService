@@ -3,6 +3,10 @@ package com.shironeko.restaurantservice;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.widget.Toast;
+
+import com.shironeko.restaurantservice.dialog.SetIpaddress;
+import com.shironeko.restaurantservice.dialog.SetTableFirst;
 
 
 /**
@@ -58,7 +62,20 @@ public class ItemListActivity extends FragmentActivity
      */
     @Override
     public void onItemSelected(String id) {
-        if (mTwoPane) {
+        int test = Integer.parseInt(id);
+        switch (test) {
+            case 1: SetIpaddress setip = new SetIpaddress(ItemListActivity.this);
+                    setip.show();
+                    break;
+            case 2: SetTableFirst setTable = new SetTableFirst(ItemListActivity.this);
+                    setTable.show();
+                    break;
+            default:
+                Toast.makeText(getApplicationContext(), "Fuck U", Toast.LENGTH_LONG).show();
+        }
+
+    }
+        /*if (mTwoPane) {
             // In two-pane mode, show the detail view in this activity by
             // adding or replacing the detail fragment using a
             // fragment transaction.
@@ -77,5 +94,5 @@ public class ItemListActivity extends FragmentActivity
             detailIntent.putExtra(ItemDetailFragment.ARG_ITEM_ID, id);
             startActivity(detailIntent);
         }
-    }
+    }*/
 }
