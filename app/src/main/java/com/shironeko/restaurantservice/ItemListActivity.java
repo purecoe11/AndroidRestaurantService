@@ -5,8 +5,13 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.widget.Toast;
 
+import com.shironeko.restaurantservice.data.Data;
+import com.shironeko.restaurantservice.data.Order;
 import com.shironeko.restaurantservice.dialog.SetIpaddress;
+import com.shironeko.restaurantservice.dialog.SetTableChange;
 import com.shironeko.restaurantservice.dialog.SetTableFirst;
+
+import java.util.Date;
 
 
 /**
@@ -39,6 +44,10 @@ public class ItemListActivity extends FragmentActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item_list);
 
+        Data.Data_Order.add(new Order(1,3,new Date(),false));
+        Data.Data_Order.add(new Order(2,2,new Date(),false));
+        Data.Data_Order.add(new Order(3,1,new Date(),false));
+
         if (findViewById(R.id.item_detail_container) != null) {
             // The detail container view will be present only in the
             // large-screen layouts (res/values-large and
@@ -69,6 +78,9 @@ public class ItemListActivity extends FragmentActivity
                     break;
             case 2: SetTableFirst setTable = new SetTableFirst(ItemListActivity.this);
                     setTable.show();
+                    break;
+            case 3: SetTableChange setTableChange = new SetTableChange(ItemListActivity.this,1);
+                    setTableChange.show();
                     break;
             default:
                 Toast.makeText(getApplicationContext(), "Fuck U", Toast.LENGTH_LONG).show();

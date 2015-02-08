@@ -1,4 +1,4 @@
-package com.shironeko.restaurantservice.objectunit;
+package com.shironeko.restaurantservice.data;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

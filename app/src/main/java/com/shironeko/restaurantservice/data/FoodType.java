@@ -1,4 +1,4 @@
-package com.shironeko.restaurantservice.objectunit;
+package com.shironeko.restaurantservice.data;
 
 /**
  * Created by Tossapon on 23/1/2558.
